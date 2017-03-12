@@ -1,14 +1,9 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-// var Clarifai = require('clarifai');
+
 var EmojiTranslate = require('emoji-translate');
 
 var emojiTranslator = new EmojiTranslate()
-// console.log(emojiTranslator.translate('the house is on fire!'))
-// instantiate a new Clarifai app passing in your clientId and clientSecret
-// var app = new Clarifai.App(
-//   '8uErddvxLvmT79ERk2bqKoO9OcC1I11wcjP2BT7K',
-//   'f3Ma5t0zpF-vZkwYw4K73xKPVIgycI7PBjuKiwe-'
-// );
+
 window.explode = function(model, element_src){
   app.models.predict(model, element_src).then(
     function(response) {
@@ -19,7 +14,7 @@ window.explode = function(model, element_src){
 
         var word = concepts[index].name;
         var translated = emojiTranslator.translate(word);
-        // console.log(word + " => " + translated);
+      
         if( word === translated || translated.trim() === "") {
 
         } else {
@@ -40,15 +35,12 @@ window.explode = function(model, element_src){
       }
 
 
-      // console.log("done");
     },
     function(err) {
       console.error(err);
     }
   );
 }
-
-// explode(Clarifai.GENERAL_MODEL, document.getElementById("img").src);
 
 },{"emoji-translate":2}],2:[function(require,module,exports){
 'use strict'
